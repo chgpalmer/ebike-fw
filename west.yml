@@ -1,0 +1,32 @@
+# Copyright (c) 2021 Nordic Semiconductor ASA
+# Copyright (c) 2024 Charlie Palmer
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  self:
+    west-commands: scripts/west-commands.yml
+
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+    - name: chgpalmer
+      url-base: https://github.com/chgpalmer
+
+  projects:
+    - name: zephyr
+      description: zephyr RTOS
+      remote: zephyrproject-rtos
+      revision: main
+      clone-depth: 1
+      import:
+        name-allowlist:
+          - cmsis      # required by the ARM port
+          - hal_stm32  # required by STM32 boards
+    - name: zephyr-hal-artery
+      remote: chgpalmer
+      description: Artery AT32 HAL module
+      path: modules/hal/at32
+      groups:
+        - hal
+      revision: main
+      clone-depth: 1
