@@ -3,6 +3,19 @@
 eBike controller firmware for To7 DM-02 motor controller boards. These boards use an ARTERY AT32F413CBT7 SOC:
 * 32-bit ARM Cortex-M4 core with FPU. For more details see https://www.arterychip.com/en/product/AT32F413.jsp
 
+## Status: Pre-alpha
+
+### Stage 1. Board support
+- [x] Skeleton zephyr project that builds helloworld
+- [ ] Import AT32 HAL + flashing tools into Zephyr module
+- [ ] Add AT32 driver shims (Flash, pwm, ..?) + bindings
+- [ ] Add AT32F413 SoC (dts, Kconfig, CMakeLists.txt)
+- [ ] Add MinShine board (dts, runners)
+- [ ] Helloworld on hardware
+
+### Stage 2. eBike app
+- [ ] ...
+
 ## Dependencies
 * cmake
 * python3 (and various python packages)
@@ -60,6 +73,3 @@ west build --board stm32f411e_disco
 ```
 west flash
 ```
-
-## Porting
-TODO.
